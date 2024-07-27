@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+    integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+
+</head>
+<style>
+  * {
+    list-style: none;
+  }
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+  }
+
+  a {
+    color: #0b0c0c;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
+  }
+
+  a:hover {
+    color: #5faee3;
+    text-decoration: none;
+    transition: all ease-out 0.3s;
+  }
+
+  .cm:hover .custom {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif;
+  }
+
+  .hvr:hover {
+    color: rgba(36, 158, 202, 0.993);
+    transition: all ease-in-out 0.5S;
+  }
+
+  .image {
+    animation: up-dwn 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes up-dwn {
+    0% {
+      transform: translateY(10px);
+    }
+
+    100% {
+      transform: translateY(-30px);
+    }
+  }
+
+  /* deep drop down */
+  .drop {
+    background: #fbfbfb;
+    position: absolute;
+    white-space: nowrap;
+    margin-left: 120px;
+    top: 30%;
+    right: 100%;
+    display: none;
+  }
+
+  .tap:hover .drp .drop {
+    display: block;
+  }
+
+  /* clients */
+  .clients .col-lg-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .clients img {
+    width: 50%;
+    filter: grayscale(100);
+  }
+
+  .clients img:hover {
+    filter: none;
+  }
+
+  .box {
+    background: #74C0FC;
+    width: 50px;
+    height: 2px;
+    margin: 19px 10px 25px 10px;
+  }
+
+  .icon {
+    background: #74C0FC;
+    width: 70px;
+    border-radius: 50%;
+    height: 70px;
+    padding: 15px;
+  }
+
+  .c:hover {
+    color: aliceblue;
+    background-color: #74C0FC;
+    transition: all ease-in 0.3s;
+  }
+
+  .more-services .card {
+    border: none;
+    padding: 160px 20px 20px 20px;
+    position: relative;
+    background-size: cover;
+  }
+
+  .more-services .card-body {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .portfolio {
+    position: relative;
+  }
+
+  .portfolio-info {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    display: none;
+  }
+
+  .portfolio:hover .portfolio-info {
+    display: block;
+    transition: all 0.10s;
+    /* color: aliceblue; */
+  }
+
+  .cm:hover .custom {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.2s;
+  }
+
+  .cm:hover img {
+    transform: scale(1.1);
+    transition: all ease-in-out 0.4s;
+  }
+
+  .cm {
+    overflow: hidden;
+    transition: all ease-in-out 0.10s;
+  }
+
+  .social {
+    background: rgba(255, 255, 255, 0.8);
+    bottom: 109px;
+    display: none;
+    transition: all ease-in-out 0.10s;
+  }
+
+  .m {
+    display: none;
+  }
+
+  .member :hover .m {
+    display: block;
+    transition: all ease-in-out 0.2s !important;
+    opacity: 1;
+  }
+
+  .lh {
+    line-height: 40px;
+  }
+
+  .circale {
+    border: 1px #5faee3 solid;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .circale:hover {
+    background-color: #5faee3;
+    color: white !important;
+  }
+</style>
+
+<body>
+  <!-- ================================================================================================== -->
+  <!-- ==================navbar ====================-->
+  <!-- ================================================================================================== -->
+  <div class="container-fluid shadow p-1 mb-5 bg-body-tertiary sticky-top ">
+    <div class="container ">
+      <nav class="navbar navbar-expand-lg  ">
+        <div class="container-fluid ">
+          <a class="fs-2 fw-bolder " href="">Vesperr</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item p-2">
+              <a class="nav-link active text-info" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item p-2 ">
+              <a class="nav-link hvr" aria-current="page" href="">About</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link hvr " aria-current="page" href="#">Services</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link hvr" aria-current="page" href="#">Portfolio</a>
+            </li>
+            <li class=" nav-item p-2 ">
+              <a class="nav-link  hvr" href="#">Team</a>
+            </li>
+
+            <li class="nav-item dropdown p-2">
+              <a class="nav-link dropdown-toggle hvr" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu shadow border-none">
+                <li><a class="dropdown-item p-2" href="#">drop down 1</a></li>
+                <li class="tap p-2"><a href="#">deep drop down</a>
+                  <ul class="drp">
+                    <div class="drop border-none rounded shadow">
+                      <li><a href="#" class="p-4 lh">Deep Drop Down 1</a></li>
+                      <li><a href="#" class="p-4 lh">Deep Drop Down 2</a></li>
+                      <li><a href="#" class="p-4 lh">Deep Drop Down 3</a></li>
+                      <li><a href="#" class="p-4 lh">Deep Drop Down 4</a></li>
+                      <li><a href="#" class="p-4 lh">Deep Drop Down 5</a></li>
+                    </div>
+                  </ul>
+                </li>
+                <li><a class="dropdown-item p-2" href="#">drop down 2</a></li>
+                <li><a class="dropdown-item p-2" href="#">drop down 3</a></li>
+                <li><a class="dropdown-item p-2" href="#">drop down 4</a></li>
+              </ul>
+
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link hvr" aria-current="page" href="#">Contact</a>
+            </li>
+            <li class="nav-item ">
+
+              <button type="button" class="btn btn-primary btn-sm rounded-pill p-2   ">Get_started</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <main>
+    <!-- ====================================================================================== -->
+    <!--================================ hiro section========================= -->
+    <!-- ======================================================================================================== -->
+    <div class="container-fluid mb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6 ">
+            <h1 data-aos="fade-up" data-aos-duration="800" style="color: #0b0c0c; font-weight: 400;"><big><b>Grow your
+                  business with Vesperr</b></big></h1>
+            <h2 data-aos="fade-up" data-aos-delay="1000" - style="font-size: x-large;">We are team of talented designers
+              making websites with
+              Bootstrap</h2>
+            <button data-aos="fade-up" data-aos-delay="1200" type="button"
+              class="btn btn-outline-primary btn-lg rounded-pill mt-4 mb-5  ">Get started</button>
+          </div>
+          <div class="col-12 col-lg-6  image" data-aos="fade-left" data-aos-delay="00">
+            <img width="100%" height="100%" class="img-fluid" data-aos="fade-left" data-aos-delay="700"
+              src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/hero-img.png" alt="">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- ===============================================================================================-->
+    <!-- ==================== Clients Section ============================= -->
+    <!-- ===============================================================================================-->
+    <section class="clients">
+      <div class="container-fluid bg-body-tertiary mb-5 p-4">
+        <div class="container ">
+          <div class=" row ">
+            <div class="col-lg-2 col-md-4 col-6 ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-1.png"
+                class="img-fluid " alt="" width="70px" data-aos="zoom-in">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-2.png"
+                class="img-fluid =" alt="" width="70px" data-aos="zoom-in" data-aos-delay="100">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-3.png"
+                class="img-fluid " alt="" width="70px" data-aos="zoom-in" data-aos-delay="200">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-4.png"
+                class="img-fluid " alt="" width="70px" data-aos="zoom-in" data-aos-delay="300">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-5.png"
+                class="img-fluid " alt="" width="70px" data-aos="zoom-in" data-aos-delay="400">
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/clients/client-6.png"
+                class="img-fluid" alt="" width="70px" data-aos="zoom-in" data-aos-delay="500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container  mb-5">
+      <div class="d-flex justify-content-center   " data-aos="fade-up">
+        <div class="box"></div>
+        <h2 class="text-center">ABOUT US</h2>
+        <div class="box"></div>
+      </div>
+
+    </div>
+    <div class="container mt-5 mb-5">
+      <div class="row mb-5">
+        <div class="col-12 col-lg-6 " data-aos="fade-up" data-aos-delay="150">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.</p>
+          <ul>
+            <li><i class="fa-solid fa-check-double" style="color: #74C0FC;"></i> Ullamco laboris nisi ut aliquip ex ea
+              commodo consequat</li>
+            <li><i class="fa-solid fa-check-double" style="color: #74C0FC;"></i> Duis aute irure dolor in reprehenderit
+              in
+              voluptate velit</li>
+            <li><i class="fa-solid fa-check-double" style="color: #74C0FC;"></i> Ullamco laboris nisi ut aliquip ex ea
+              commodo consequat</li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6 " data-aos="fade-up" data-aos-delay="200">
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+
+          <button type="button" class="btn btn-outline-primary  rounded-pill  ">Learn more</button>
+        </div>
+      </div>
+      <!-- ============================================================================================== -->
+      <!-- ======= Counts Section ======= -->
+      <!-- ============================================================================================== -->
+      <div class="row ">
+        <div class=" col-xl-5 d-flex justify-content-center justify-content-xl-start   " data-aos="fade-right"
+          data-aos-delay="150">
+          <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/stats-img.svg" alt="" class="img-fluid">
+        </div>
+        <div class="col-xl-7 d-flex mb-5" data-aos="fade-left" data-aos-delay="300">
+          <div class=" d-flex ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <i class="bi bi-emoji-smile fs-1" style="color: #74C0FC;"></i>
+                <span class="fw-bold fs-2">65</span>
+                <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+              </div>
+              <div class="col-md-6 ">
+                <i class="bi bi-journal-richtext fs-1" style="color: #74C0FC;"></i>
+                <span class="fw-bold fs-2">85</span>
+                <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan
+                </p>
+              </div>
+              <div class="col-md-6">
+
+                <i class="bi bi-clock fs-1 " style="color: #74C0FC;"></i>
+                <span class="fw-bold fs-2">18</span>
+                <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate
+                  non vel</p>
+              </div>
+
+              <div class="col-md-6 ">
+                <i class="bi bi-award fs-1" style="color: #74C0FC;"></i>
+                <span class="fw-bold fs-2 ">15</span>
+                <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ====================================================================================================== -->
+    <!-- =================SERVICES================ -->
+    <!-- ====================================================================================================== -->
+    <div class="container  mb-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="d-flex justify-content-center  ">
+        <div class="box"></div>
+        <h2 class="text-center">SERVICES</h2>
+        <div class="box"></div>
+      </div>
+      <p class="text-center mt-3  ">Magnam dolores commodi suscipit eius consequatur ex
+        aliquid fug</p>
+    </div>
+
+
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 d-flex a mb-lg-0 ">
+          <div class="shadow p-3 mb-5 bg-body-light rounded c" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-3">
+              <div class="icon"><i class="bx bxl-dribbble fs-1" style="color: white;"></i></div>
+              <h5><a href="" class="text-black text-decoration-none">Lorem Ipsum</a></h5>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex  mb-lg-0 ">
+          <div class="shadow p-3 mb-5 bg-body-light rounded c" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-3">
+              <div class="icon"><i class="bx bx-file fs-1" style="color: white;"></i></div>
+              <h5><a href="" class="text-black text-decoration-none">Sed ut perspiciatis</a></h5>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex  ">
+          <div class="shadow p-3 mb-5 bg-body-light rounded c" data-aos="fade-up" data-aos-delay="300">
+            <div class="p-3">
+              <div class="icon"><i class="bx bx-tachometer fs-1 " style="color: white;"></i></div>
+              <h5><a href="" class="text-black text-decoration-none">Magni Dolores</a></h5>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex    ">
+          <div class="shadow p-3 mb-5 bg-body-light rounded c " data-aos="fade-up" data-aos-delay="400">
+            <div class="p-3">
+              <div class="icon"><i class="bx bx-world fs-1" style="color: white;"></i></div>
+              <h5><a href="" class="text-black ">Nemo Enim</a></h5>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ================================================================================================== -->
+    <!-- ======= More Services Section ======= -->
+    <!-- ==================================================================================================== -->
+    <div class="more-services ">
+      <div class="container mb-5">
+        <div class="row ">
+          <div class="col-md-6 d-flex mt-4">
+            <div class="card "
+              style="background-image: url(https://bootstrapmade.com/demo/templates/Vesperr/assets/img/services-1.jpg);"
+              data-aos="fade-up" data-aos-delay="100">
+              <div class="card-body text-center  ">
+                <h5 class="card-title"><a href="">Lobira Duno</a></h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et
+                  dolore magna aliqua.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read
+                    More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex   mt-4">
+            <div class="card "
+              style="background-image: url(https://bootstrapmade.com/demo/templates/Vesperr/assets/img/services-2.jpg);"
+              data-aos="fade-up" data-aos-delay="200">
+              <div class="card-body text-center">
+                <h5 class="card-title"><a href="">Limere Radses</a></h5>
+                <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque
+                  laudantium, totam rem.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read
+                    More</a></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 d-flex  mt-4 ">
+            <div class="card "
+              style="background-image: url(https://bootstrapmade.com/demo/templates/Vesperr/assets/img/services-3.jpg);"
+              data-aos="fade-up" data-aos-delay="100">
+              <div class="card-body text-center">
+                <h5 class="card-title"><a href="">Nive Lodo</a></h5>
+                <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni
+                  dolores.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read
+                    More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex mt-4 ">
+            <div class="card "
+              style="background-image: url(https://bootstrapmade.com/demo/templates/Vesperr/assets/img/services-4.jpg);"
+              data-aos="fade-up" data-aos-delay="200">
+              <div class="card-body text-center">
+                <h5 class="card-title"><a href="">Pale Treda</a></h5>
+                <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium
+                  voluptatem.</p>
+                <div class="read-more"><a href="#"><i class=" bi bi-arrow-right"></i> Read
+                    More</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ====================================================================================================== -->
+    <!-- ======================= Features Section ==================== -->
+    <!-- ====================================================================================================== -->
+    <div class="container mb-5 " class="section-title" data-aos="fade-up">
+      <div class="d-flex justify-content-center  ">
+        <div class="box"></div>
+        <h2 class="text-center">FEATURES</h2>
+        <div class="box"></div>
+      </div>
+      <p class="text-center mt-3  ">Magnam dolores commodi suscipit eius consequatur ex
+        aliquid fug</p>
+    </div>
+    <div class="container mb-5">
+      <div class="row " data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-3 col-md-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-eye" style="color: #ffbb2c;font-size: 35px; margin-right: 15px; "></i>
+            <h3 class="mt-1"><a href="">Lorem Ipsum</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-infinity" style="color: #5578ff; font-size: 35px ;margin-right: 15px"></i>
+            <h3 class="mt-1"><a href="">Dolor Sitema</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="shadow-sm p-3 bg-body-tertiary d-flex">
+            <i class="bi bi-mortarboard" style="color: #e80368;font-size: 35px; margin-right: 15px; "></i>
+            <h3 class="mt-1"><a href="">Sed perspiciatis</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+
+            <i class="bi bi-nut" style="color: #e361ff;font-size: 35px; margin-right: 15px;"></i>
+            <h3 class="mt-1"><a href="">Magni Dolores</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-shuffle" style="color: #47aeff;font-size: 35px; margin-right: 15px;"></i>
+            <h3 class="mt-1"><a href="">Nemo Enim</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-star" style="color: #ffa76e; font-size: 35px; margin-right: 15px;"></i>
+            <h3 class="mt-1"><a href="">Eiusmod Tempor</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-x-diamond" style="color: #11dbcf; font-size: 35px ;margin-right: 15px"></i>
+
+            <h3 class="mt-1"><a href="">Midela Teren</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-camera-video" style="color: #4233ff; font-size: 35px ;margin-right: 15px"></i>
+            <h3 class="mt-1"><a href="">Pira Neve</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary d-flex">
+            <i class="bi bi-command" style="color: #b2904f; font-size: 35px ;margin-right: 15px "></i>
+            <h3 class="mt-1"><a href="">Dirada Pack</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3  bg-body-tertiary  d-flex">
+            <i class="bi bi-dribbble" style="color: #b20969; font-size: 35px ;margin-right: 15px"></i>
+            <h3 class="mt-1"><a href="">Moton Ideal</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3 bg-body-tertiary  d-flex">
+            <i class="bi bi-activity" style="color: #ff5828; font-size: 35px ;margin-right: 15px"></i>
+            <h3 class="mt-1"><a href="">Verdo Park</a></h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="shadow-sm p-3 bg-body-tertiary  d-flex">
+            <i class="bi bi-brightness-high" style="color: #29cc61;  font-size: 35px ;margin-right: 15px"></i>
+            <h3 class="mt-1"><a href="">Flavor Nivelanda</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================================================== -->
+    <!-- =================TESTIMONIAS SECTION========================= -->
+    <!-- =============================================================================================== -->
+    <section class="bg-body-secondary  mb-5">
+      <div class="container " data-aos="fade-up">
+
+        <div class="d-flex justify-content-center  p-3">
+          <div class="box"></div>
+          <h2 class="text-center">TESTIMONIALS</h2>
+          <div class="box"></div>
+        </div>
+        <p class="text-center mt-3 mb-5  ">Magnam dolores commodi suscipit eius consequatur ex
+          aliquid fug</p>
+
+        <swiper-container class="mySwiper" init="false" data-aos="fade-up" data-aos-delay="100">
+          <swiper-slide class="col-lg-6 col-md-8">
+
+            <div class="testimonial d-flex shadow-none p-3 mb-5 bg-body-tertiary rounded ">
+              <div class="t-item1">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/testimonials/testimonials-1.jpg"
+                  class="testimonial-img  shadow-none p-3 mb-5 bg-body-tertiary rounded  " width="130px" alt="">
+              </div>
+              <div class="t-item2">
+                <h3>Saul Goodman</h3>
+                <p style="color: #999;">Ceo &amp; Founder</p>
+                <p>
+                <div class="stars" style="color: #ffc107;">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <i class="bx bxs-quote-alt-left quote-icon-left" style="color: #e1f0fa;"></i>
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <i class="bx bxs-quote-alt-right quote-icon-right" style="color: #e1f0fa;"></i>
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="col-lg-6 col-md-8">
+            <div class="testimonial d-flex shadow-none p-3 mb-5 bg-body-tertiary rounded ">
+              <div class="t-item1">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/testimonials/testimonials-2.jpg"
+                  class="testimonial-img  shadow-none p-3 mb-5 bg-body-tertiary rounded  " width="130px" alt="">
+              </div>
+              <div class="t-item2">
+                <h3>Sara Wilsson</h3>
+                <p style="color: #999;">Designer
+                </p>
+                <div class="stars" style="color: #ffc107;">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left" style="color: #e1f0fa;"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                  quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right" style="color: #e1f0fa;"></i>
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="col-lg-6 col-md-8">
+            <div class="testimonial d-flex shadow-none p-3 mb-5 bg-body-tertiary rounded ">
+              <div class="t-item1">
+                <img src="https://bootstrapmade.com/demox/templates/Vesperr/assets/img/testimonials/testimonials-3.jpg"
+                  class="testimonial-img  shadow-none p-3 mb-5 bg-body-tertiary rounded  " width="130px" alt="">
+              </div>
+              <div class="t-item2">
+                <h3>Jena Karlis</h3>
+                <p style="color: #999;">Store Owner</p>
+                <div class="stars" style="color: #ffc107;">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left" style="color: #e1f0fa;"></i>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                  tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  <i class="bx bxs-quote-alt-right quote-icon-right" style="color: #e1f0fa;"></i>
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="col-lg-6 col-md-8">
+            <div class="testimonial d-flex shadow-none p-3 mb-5 bg-body-tertiary rounded ">
+              <div class="t-item1">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/testimonials/testimonials-4.jpg"
+                  class="testimonial-img  shadow-none p-3 mb-5 bg-body-tertiary rounded  " width="130px" alt="">
+              </div>
+              <div class="t-item2">
+                <h3>Matt Brandon</h3>
+                <p style="color: #999;">Freelancer</p>
+                <div class="stars" style="color: #ffc107;">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left" style="color: #e1f0fa;"></i>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                  minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  <i class="bx bxs-quote-alt-right quote-icon-right" style="color: #e1f0fa;"></i>
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide class="col-lg-6 col-md-8">
+            <div class="testimonial d-flex shadow-none p-3 mb-5 bg-body-tertiary rounded ">
+              <div class="t-item1">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/testimonials/testimonials-5.jpg"
+                  class="testimonial-img  shadow-none p-3 mb-5 bg-body-tertiary rounded  " width="130px" alt="">
+
+
+              </div>
+              <div class="t-item2">
+                <h3>John Larson</h3>
+                <p style="color: #999;">Entrepreneur</p>
+                <div class="stars" style="color: #ffc107;">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left" style="color: #e1f0fa;"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                  labore duis sunt culpa nulla cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bx bxs-quote-alt-right quote-icon-right" style="color: #e1f0fa;"></i>
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script>
+      const swiperEl = document.querySelector('swiper-container')
+      Object.assign(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        pagination: {
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+          },
+        },
+
+      });
+
+      swiperEl.initialize();
+    </script>
+    <!-- ============================================================================================= -->
+    <!-- ====================PORTFOLIO======================== -->
+    <!-- ============================================================================================= -->
+    <div class="container  " data-aos="fade-up">
+      <div class="d-flex justify-content-center  ">
+        <div class="box"></div>
+        <h2 class="text-center">PORTFOLIO</h2>
+        <div class="box"></div>
+      </div>
+      <p class="text-center mt-3">Magnam dolores commodi suscipit eius consequatur ex
+        aliquid fug</p>
+    </div>
+    <div class="container mb-5 ">
+      <p class="d-flex justify-content-center " data-aos="fade-up" data-aos-delay="200">
+        <button type="button" class="btn btn-info btn m-2 ">All</button>
+        <button type="button" class="btn btn-outline-info m-2">APP</button>
+        <button type="button" class="btn btn-outline-info m-2">CARD</button>
+        <button type="button" class="btn btn-outline-info m-2">WEB</button>
+    </div>
+    </p>
+    </div>
+    <div class="container mb-5">
+      <div class="row container" data-aos="fade-up" data-aos-delay="400">
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/app-1.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>APP 1</h4>
+              <p>APP</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/product-1.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6  -mb-4">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/branding-1.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>App 2</h4>
+              <p>App</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/books-1.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>CARD 4</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/app-2.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/product-2.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>APP 3</h4>
+              <p>APP</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/branding-2.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>CARD 1</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/books-2.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Card 3</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/app-3.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/product-3.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Card 3</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/branding-3.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Card 3</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4  ">
+          <div class="portfolio cm">
+            <div class="im position-relative ">
+              <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/portfolio/books-3.jpg"
+                class="img-fluid  w-100" alt="">
+              <div class="position-absolute w-100 h-100 custom top-0 opicity-0"></div>
+            </div>
+            <div class="portfolio-info " style="color: #e1f0fa;">
+              <h4>Card 3</h4>
+              <p>CARD</p>
+              <div class="fs-3">
+                <i class="bx bx-plus hvr"></i>
+                <i class="bx bx-link hvr"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================================================== -->
+    <!-- =======================TEAM===================== -->
+    <!-- ================================================================================================= -->
+    <div class=" bg-light p-3 mb-5 ">
+      <div class="container p-3 mb-5">
+
+        <div class="container p-3  " data-aos="fade-up">
+          <div class="d-flex justify-content-center  ">
+            <div class="box"></div>
+            <h2 class="text-center">TEAM</h2>
+            <div class="box"></div>
+          </div>
+          <p class="text-center mt-3  ">Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member  shadow-sm  bg-body-tertiary rounded position-relative mb-3" data-aos="fade-up"
+              data-aos-delay="100">
+              <div class="member-img ">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/team/team-1.jpg" class="img-fluid"
+                  alt="">
+                <div class="m">
+                  <div class="position-absolute d-flex social justify-content-evenly w-100 p-3">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3">
+                <h4 class="text-center">Walter White</h4>
+                <p class="text-center ">Chief Executive Officer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member  shadow-sm  bg-body-tertiary rounded position-relative mb-3" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="member-img">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/team/team-2.jpg" class="img-fluid"
+                  alt="">
+                <div class="m">
+                  <div class="position-absolute d-flex social justify-content-evenly w-100 p-3">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3">
+                <h4 class="text-center">Sarah Jhonson</h4>
+                <p class="text-center">Product Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member  shadow-sm  bg-body-tertiary rounded position-relative mb-3" data-aos="fade-up"
+              data-aos-delay="300">
+              <div class="member-img">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/team/team-3.jpg" class="img-fluid"
+                  alt="">
+                <div class="m">
+                  <div class="position-absolute d-flex social justify-content-evenly w-100 p-3">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3">
+                <h4 class="text-center">William Anderson</h4>
+                <p class="text-center">CTO</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member  shadow-sm  bg-body-tertiary rounded position-relative mb-3" data-aos="fade-up"
+              data-aos-delay="400">
+              <div class=" member-img">
+                <img src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/team/team-4.jpg"
+                  class="img-fluid " alt="">
+                <div class="m">
+                  <div class="position-absolute d-flex social justify-content-evenly w-100 p-3">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3">
+                <h4 class="text-center">Amanda Jepson</h4>
+                <p class="text-center">Accountant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================================================ -->
+    <!-- ============================== Pricing ======================-->
+    <!-- ============================================================================================ -->
+    <div class="container   mb-5" data-aos="fade-up" data-aos-delay="500" data-aos-duration="109px">
+      <div class="d-flex justify-content-center ">
+        <div class="box"></div>
+        <h2 class="text-center">PRICING</h2>
+        <div class="box"></div>
+      </div>
+      <p class="text-center mt-3  ">Sit sint consectetur velit nemo qui impedit suscipit alias ea</p>
+    </div>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6  ">
+          <div class="bg-body-tertiary text-center rounded mb-5 p-3" data-aos="zoom-in-right" data-aos-delay="200">
+            <h4 class="p-3">Free</h4>
+            <h1 class="p-3" style="color: #74C0FC;"><sup>$</sup>0<span style="color: #444444; font-size:medium;"> /
+                month</span></h1>
+            <ul class="lh">
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li><s>Pharetra massa</s></li>
+              <li><s>Massa ultricies mi</s></li>
+            </ul>
+            <button type="button" class="btn btn-outline-info  mb-5 rounded-pill">Buy now</button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-4 mt-md-0 ">
+          <div class="bg-body-tertiary text-center rounded mb-5 p-3 border border-info" data-aos="zoom-in"
+            data-aos-delay="100">
+            <h4 class="p-3">Business</h4>
+            <h1 class="p-3" style="color: #74C0FC;"><sup>$</sup>19<span style="color: #444444; font-size:medium;"> /
+                month</span></h1>
+            <ul class="lh">
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li>Pharetra massa</li>
+              <li><s>Massa ultricies mi</s></li>
+            </ul>
+            <button type="button" class="btn btn-info  mb-5 rounded-pill ">Buy now</button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="bg-body-tertiary text-center rounded mb-5 p-3" data-aos="zoom-in-left" data-aos-delay="200">
+            <h4 class="p-3">Developer</h4>
+            <h1 class="p-3" style="color: #74C0FC;"><sup>$</sup>29<span style="color: #444444; font-size:medium;"> /
+                month</span></h1>
+            <ul class="lh">
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li>Pharetra massa</li>
+              <li>Massa ultricies mi</li>
+            </ul>
+            <button type="button" class="btn btn-outline-info mb-5 rounded-pill">Buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================================================= -->
+    <!-- ======================f.a.q======================== -->
+    <!-- ============================================================================================= -->
+    <div class="container mb-5 p-3">
+      <p class="text-center   mb-5">
+      <div class="container   mb-5">
+        <div class="d-flex justify-content-center" data-aos="fade-up">
+          <div class="box"></div>
+          <h2 class="text-center">FREQUANTLY ASKED QUESTIONS</h2>
+          <div class="box"></div>
+        </div>
+      </div>
+      </p>
+      <div class="row faq-item d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-5 d-flex">
+          <i class="fa-solid fa-circle-question  p-1" style="color: #74C0FC ;"></i>
+          <p> Non consectetur a erat nam at lectus urna duis?</p>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet <br> non curabitur
+            gravida.
+            Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row faq-item d-flex" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5 d-flex">
+          <i class="fa-solid fa-circle-question  p-1" style="color: #74C0FC ;"></i>
+          <p> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</p>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec
+            ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper
+            dignissim.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row faq-item d-flex " data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-5 d-flex">
+          <i class="fa-solid fa-circle-question  p-1" style="color: #74C0FC ;"></i>
+          <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</p>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
+            integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
+            Lectus urna duis convallis convallis tellus.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row faq-item d-flex " data-aos="fade-up" data-aos-delay="400">
+        <div class="col-lg-5 d-flex">
+          <i class="fa-solid fa-circle-question  p-1" style="color: #74C0FC ;"></i>
+          <p>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</p>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim.
+            Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt
+            pariatur error doloribus fuga.
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row faq-item d-flex" data-aos="fade-up" data-aos-delay="500">
+        <div class="col-lg-5 d-flex">
+          <i class="fa-solid fa-circle-question  p-1" style="color: #74C0FC ;"></i>
+          <p>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</p>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel
+            risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis
+            blandit turpis cursus in
+          </p>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <!-- =============================================================================================== -->
+    <!-- ================contact================== -->
+    <!-- =============================================================================================== -->
+    <p class="text-center   mb-5">
+    <div class="container   mb-5">
+      <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="600">
+        <div class="box"></div>
+        <h2 class="text-center">CONTACT US</h2>
+        <div class="box"></div>
+      </div>
+    </div>
+    </p>
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+          <div class="contact-about">
+            <h3>Vesperr</h3>
+            <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque
+              felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <div class="d-flex justify-content-evenly w-50">
+              <a href="#" style="color: #5faee3;" class="circale"><i class="bi bi-twitter"></i></a>
+              <a href="#" style="color: #5faee3;" class="circale"><i class="bi bi-facebook"></i></a>
+              <a href="#" style="color: #5faee3;" class="circale"><i class="bi bi-instagram"></i></a>
+              <a href="#" style="color: #5faee3;" class="circale"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="800">
+          <div class="info">
+            <div class="d-flex m-2 w-100 justify-content-evenly">
+              <img src="/projects/bootstrap/img/contact/ri--map-pin-line.svg" width="35px" alt="">
+              <p class="mt-2">A108 Adam Street<br>New York, NY 535022</p>
+            </div>
+
+            <div class="d-flex m-2 w-100 justify-content-evenly">
+              <img src="/projects/bootstrap/img/contact/ri--mail-send-line.svg" width="35px" alt="">
+              <p class="mt-2">info@example.com</p>
+            </div>
+
+            <div class="d-flex m-2 w-100 justify-content-evenly">
+              <img src="/projects/bootstrap/img/contact/ri--phone-line.svg" width="35px" alt="">
+              <p class="mt-2">+1 5589 55488 55s</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <form>
+            <div class="mb">
+              <label for="name" class="form-label"></label>
+              <input type="name" class="form-control rounded-0" id="name" placeholder="your name">
+            </div>
+            <div class="mb">
+              <label for="exampleInputEmail1" class="form-label"></label>
+              <input type="email" class="form-control rounded-0" id="exampleInputEmail1" placeholder="your email"
+                aria-describedby="emailHelp">
+            </div>
+            <div class="mb">
+              <label for="sub" class="form-label"></label>
+              <input type="sub" class="form-control rounded-0" id="sub" placeholder="Subject">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"></label>
+              <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="5"
+                placeholder="Message"></textarea>
+            </div>
+
+            <div class="text-center"> <button type="reset" class="btn btn-info rounded-pill  p-2"
+                data-bs-toggle="button">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+
+    </div>
+
+  </main>
+  <footer class="shadow-lg p-3">
+    <div class="container p-3 ">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+          <br>
+          Designed by <a href="" style="color: #5faee3;">BootstrapMade</a>
+        </div>
+        <div class="col-lg-6">
+          <nav class=" text-lg-right text-center pt-2 pt-lg-0  ">
+            <a href="" style="font-weight: 100;" class="p-3">Home</a>
+            <a href="" style="font-weight: 100;" class="p-3">About</a>
+            <a href="" style="font-weight: 100;" class="p-3">Privacy Policy</a>
+            <a href="" style="font-weight: 100;" class="p-3">Terms of Use</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+
+</html>
